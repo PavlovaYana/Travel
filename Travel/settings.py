@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-46cubb=o!@j@df(ft)8s5^4plezmsna919g&z%nrrgs4$9b*pf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pereval.apps.PerevalConfig',
-    'rest_framework'
+    'rest_framework',
+    'django_filters',
+    'drf_yasg',
 ]
 
 SITE_ID = 1

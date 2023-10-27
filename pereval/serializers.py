@@ -64,3 +64,18 @@ class PerevalSerializer(WritableNestedModelSerializer):
             Photos.objects.create(data=data, pereval=pereval, title=title)
 
         return pereval
+
+#Добавление метода проверки изменились ли данные туриста при редактировании существующей записи
+#Перевала в статусе new
+    def validate(self, data):
+        user_data = data.get('user')
+        user = self.instance.user
+        if user_data is not None:
+
+            if user.first_name != user_data.get('first_name') \
+                    or user.last_name != user_data.get('last_name') \
+                    or user.patronymic != user_data.get('patronymic') \
+                    or user.email != user_data.get('email') \
+                    or user.phone_number != user_data.get('phone_number'):
+                raise ValidationError({'message': 'Редактирование пользовательских данных запрещено'})
+            return data
