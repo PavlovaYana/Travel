@@ -83,3 +83,4 @@ GET /submitData/user__email=<str:email>— список данных обо вс
 
 Документация с помощью Swagger.
 Покрытие кода тестами.
+В файле requirements.txt приведен список внешних зависимостей, который формируется командoй '''pip freeze > requirements.txt'''
